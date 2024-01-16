@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyBlueprint" load_steps=2 format=3 uid="uid://rxleyrp2g6fl"]
+
+[ext_resource type="Script" path="res://data/enemies/enemy_blueprint.gd" id="1_wkmmh"]
+
+[resource]
+script = ExtResource("1_wkmmh")
+hp_max = 9
+damage = 9
+card_loss = 0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerBlueprint" load_steps=4 format=3 uid="uid://dh6dhdwx5hmya"]
+
+[ext_resource type="Resource" uid="uid://u7cq7napaer8" path="res://data/effects/neighbors_damage_1.tres" id="1_j2hxr"]
+[ext_resource type="Resource" uid="uid://8374ckimlp5y" path="res://data/effects/square_damage_1.tres" id="2_lfl2n"]
+[ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="3_p6rr7"]
+
+[resource]
+script = ExtResource("3_p6rr7")
+energy = 2
+uses_max = 1
+description = "1 dmg to a target and its neighbors"
+overload_description = "1 dmg to all enemies in target square"
+effect = ExtResource("1_j2hxr")
+effect_overload = ExtResource("2_lfl2n")

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://u7cq7napaer8"]
+
+[ext_resource type="Script" path="res://data/effects/neighbors_damage_1.gd" id="1_v1vhi"]
+
+[resource]
+script = ExtResource("1_v1vhi")

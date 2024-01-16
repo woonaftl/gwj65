@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cwf4wdsbib8bh"]
+
+[ext_resource type="Script" path="res://data/effects/single_damage_distance.gd" id="1_nmvcv"]
+
+[resource]
+script = ExtResource("1_nmvcv")

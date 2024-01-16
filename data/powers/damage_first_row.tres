@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerBlueprint" load_steps=4 format=3 uid="uid://dw3ktvtmnpmbs"]
+
+[ext_resource type="Resource" uid="uid://gbg043jaeq4x" path="res://data/effects/first_wave_single_damage_2.tres" id="1_eff1h"]
+[ext_resource type="Resource" uid="uid://dkiur5cwplj3f" path="res://data/effects/first_wave_single_and_behind_damage_2.tres" id="2_uo6fm"]
+[ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="3_rx514"]
+
+[resource]
+script = ExtResource("3_rx514")
+energy = 2
+uses_max = 1
+description = "2 dmg to any enemy in front wave"
+overload_description = "2 dmg to any enemy in front wave and 2 dmg to enemy right behind it"
+effect = ExtResource("1_eff1h")
+effect_overload = ExtResource("2_uo6fm")

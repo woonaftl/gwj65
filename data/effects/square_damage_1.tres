@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://8374ckimlp5y"]
+
+[ext_resource type="Script" path="res://data/effects/square_damage_1.gd" id="1_gpsl8"]
+
+[resource]
+script = ExtResource("1_gpsl8")

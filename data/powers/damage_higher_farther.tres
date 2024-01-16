@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerBlueprint" load_steps=4 format=3 uid="uid://ctocfqa8quqea"]
+
+[ext_resource type="Resource" uid="uid://cwf4wdsbib8bh" path="res://data/effects/single_damage_distance.tres" id="1_e6d11"]
+[ext_resource type="Resource" uid="uid://h4rer1rp2iag" path="res://data/effects/single_damage_distance_defend.tres" id="2_wedrp"]
+[ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="3_6x6ds"]
+
+[resource]
+script = ExtResource("3_6x6ds")
+energy = 2
+uses_max = 1
+description = "1-4 dmg to 1 enemy, farther enemies take more dmg"
+overload_description = "1-4 dmg to 1 enemy, farther enemies take more dmg; defend based on damage dealt"
+effect = ExtResource("1_e6d11")
+effect_overload = ExtResource("2_wedrp")
