@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dfiou8miu8adf"]
+
+[ext_resource type="Script" path="res://data/effects/dmg_2_dmg_1_wave.gd" id="1_f5clq"]
+
+[resource]
+script = ExtResource("1_f5clq")

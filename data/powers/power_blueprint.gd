@@ -8,3 +8,5 @@ class_name PowerBlueprint
 @export_multiline var overload_description: String
 @export var effect: Effect
 @export var effect_overload: Effect
+@export var texture: Texture
+@export var name: String

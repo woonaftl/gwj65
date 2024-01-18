@@ -1,0 +1,71 @@
+keys,en,ru
+MAIN MENU,MAIN MENU,ГЛАВНОЕ МЕНЮ
+NEW GAME,NEW GAME,НОВАЯ ИГРА
+SETTINGS,SETTINGS,НАСТРОЙКИ
+CREDITS,CREDITS,ОБ ИГРЕ
+QUIT,QUIT,ВЫХОД
+VOLUME,VOLUME,ГРОМКОСТЬ
+GAME SPEED,GAME SPEED,СКОРОСТЬ ИГРЫ
+BACK,BACK,НАЗАД
+DISPLAY MODE,DISPLAY MODE,РЕЖИМ ОТОБРАЖЕНИЯ
+WINDOWED,WINDOWED,ОКОННЫЙ РЕЖИМ
+FULL SCREEN,FULL SCREEN,ПОЛНЫЙ ЭКРАН
+DEFEAT,DEFEAT,ПОРАЖЕНИЕ
+VICTORY,VICTORY,ПОБЕДА
+VICTORY_CREDITS_TEXT,"You won, great job!","Победа!"
+OVERLOAD_ABOVE_BAR,[center]OVERLOAD[/center],[center]ПЕРЕГРУЗКА[/center]
+OVERLOAD_IN_POWER_TOOLTIP,OVERLOAD,ПЕРЕГРУЗКА
+WAVES LEFT,WAVES LEFT,ОСТАЛОСЬ ВОЛН
+AVAILABLE POWERS,AVAILABLE POWERS,ДОСТУПНЫЕ УМЕНИЯ
+ACTIVE POWERS,ACTIVE POWERS,АКТИВНЫЕ УМЕНИЯ
+ACTIVATE,ACTIVATE,АКТИВИРОВАТЬ
+END TURN,END TURN,КОНЕЦ ХОДА
+ENEMY TURN,ENEMY TURN,ХОД ПРОТИВНИКА
+CHOOSE REWARD,CHOOSE REWARD,ВЫБРАТЬ НАГРАДУ
+DAMAGE,DAMAGE,УРОН
+LOSE_POWER_PART_1,"MAKES YOU\nLOSE","ПОХИЩАЕТ\n"
+LOSE_POWER_PART_2,"POWER",УМЕНИЕ
+POWER LOST,POWER LOST,УМЕНИЕ ПОТЕРЯНО
+REWARD_TITLE,CHOOSE YOUR REWARD:,ВЫБЕРИТЕ НАГРАДУ:
+RETURN_POWERS_REWARD,"[center]RETURN ALL POWERS\nAND LOSE 1 HP[/center]","[center]ВЕРНУТЬ ВСЕ УМЕНИЯ\nИ ПОТЕРЯТЬ\n1 ЗДОРОВЬЕ[/center]"
+ADD_POWER_REWARD,"[center]GET NEW POWER\nAND GAIN 1 HP[/center]","[center]ПОЛУЧИТЬ НОВОЕ УМЕНИЕ\nИ ПОЛУЧИТЬ\n1 ЗДОРОВЬЕ[/center]"
+THANKS_FOR_PLAYING,[center]THANKS FOR PLAYING[/center],[center]СПАСИБО ЗА ИГРУ[/center]
+CREDITS_MADE_BY,[center]Game by Daireann and Woona[/center],"[center]Авторы: Daireann, Woona[/center]"
+CREDITS_JAM,[center]Godot Wild Jam 65[/center],[center]Godot Wild Jam 65[/center]
+CREDITS_THEME,[center]Theme: OVERLOAD[/center],[center]Тема: OVERLOAD[/center]
+CREDITS_ENGINE,[center]Powered by Godot Engine 4.2[/center],[center]Движок Godot Engine 4.2[/center]
+VISIT ITCH.IO,VISIT ITCH.IO,НА САЙТ ITCH.IO
+TOOLTIP_HEALTH,"Your health\nWhen it reaches 0, you die","Здоровье\nКогда оно достигает 0, ты умираешь"
+TOOLTIP_DEFEND,"Your defense\nBlocks incoming damage","Защита\nБлокирует урон противников"
+TOOLTIP_ENEMY_ATTACK,"Enemies in this wave attack you,\ndestroying themselves in the process","Противники в этой волне атакуют,\nпринося себя в жертву"
+TOOLTIP_ENEMY_MOVE,"Enemies is this wave move towards you","Противники в этой волне двигаются к тебе"
+TOOLTIP_OVERLOAD,"Your OVERLOAD meter\nUsing powers fills it\nWhen full, your abilities unlock hidden potential,\nbut any undefended damage kills you\nMaximum depends on your health","Счётчик ПЕРЕГРУЗКИ\nИспользование умений заполняет его\nКогда счётчик полон, твои умения становятся сильнее,\nно любой незаблокированный урон убивает тебя"
+ENEMY_BASIC,Fighter,Боец
+ENEMY_ARMORED,Tank,Танк
+ENEMY_THIEF,Thief,Вор
+ENEMY_BOSS,Boss,Босс
+POWER_DMG_FIRST_ROW,Name?,Название?
+POWER_DEFEND,Name?,Название?
+POWER_DMG_DISTANCE,Name?,Название?
+POWER_DMG_NEIGHBORS,Name?,Название?
+POWER_DMG_MULTIUSE,Name?,Название?
+POWER_DMG_WAVE,Name?,Название?
+POWER_MIND_CONTROL,Name?,Название?
+POWER_PULL_DEFEND,Name?,Название?
+POWER_DESCRIPTION_DMG_FIRST_ROW,"4 dmg to any enemy in front wave",
+POWER_DESCRIPTION_DEFEND,"1 damage to target in first wave; 2 defend",
+POWER_DESCRIPTION_DMG_DISTANCE,"1-4 dmg to 1 enemy, farther enemies take more dmg",
+POWER_DESCRIPTION_DMG_NEIGHBORS,"1 dmg to a target and its neighbors",
+POWER_DESCRIPTION_DMG_MULTIUSE,"1 dmg to target",
+POWER_DESCRIPTION_DMG_WAVE,"2 dmg to target, 1 dmg to neighbors in same wave",
+POWER_DESCRIPTION_MIND_CONTROL,"Target enemy attacks an enemy behind it.\n(Cannot target Thiefs)",
+POWER_DESCRIPTION_PULL_DEFEND,"Pull target one wave closer; Defend 1 for each enemy in 1st wave\n(Target cannot be in 1st wave, cannot have any other enemies in front of it)",
+POWER_DESCRIPTION_OVERLOAD_DMG_FIRST_ROW,"4 dmg to any enemy in front wave and 2 dmg to enemy right behind it",
+POWER_DESCRIPTION_OVERLOAD_DEFEND,"1 damage to target in first wave; 3 defend",
+POWER_DESCRIPTION_OVERLOAD_DMG_DISTANCE,"1-4 dmg to 1 enemy, farther enemies take more dmg; defend based on damage dealt",
+POWER_DESCRIPTION_OVERLOAD_DMG_NEIGHBORS,"1 dmg to all enemies in target square",
+POWER_DESCRIPTION_OVERLOAD_DMG_MULTIUSE,"1 dmg to target; 1 dmg to another random enemy",
+POWER_DESCRIPTION_OVERLOAD_DMG_WAVE,"2 dmg to target, 1 dmg to other enemies in same wave",
+POWER_DESCRIPTION_OVERLOAD_MIND_CONTROL,"Target enemy attacks an enemy behind it, dealing double damage.
+(Cannot target Thiefs)",
+POWER_DESCRIPTION_OVERLOAD_PULL_DEFEND,"Pull target one wave closer; Defend 2 for each enemy in 1st wave\n(Target cannot be in 1st wave, cannot have any other enemies in front of it)",

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bmid8htgtqcbs"]
+
+[ext_resource type="Script" path="res://data/effects/mind_control_double.gd" id="1_dolpi"]
+
+[resource]
+script = ExtResource("1_dolpi")

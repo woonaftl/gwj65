@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c535kveajh372"]
+
+[ext_resource type="Script" path="res://data/effects/pull_and_defend_2.gd" id="1_s3a8l"]
+
+[resource]
+script = ExtResource("1_s3a8l")

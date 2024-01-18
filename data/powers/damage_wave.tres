@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PowerBlueprint" load_steps=5 format=3 uid="uid://bycq427qlwodi"]
+
+[ext_resource type="Resource" uid="uid://dld3kavs5kjgn" path="res://data/effects/dmg_2_dmg_1_neighbors_same_wave.tres" id="1_strta"]
+[ext_resource type="Resource" uid="uid://dfiou8miu8adf" path="res://data/effects/dmg_2_dmg_1_wave.tres" id="2_dfe67"]
+[ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="3_gu76x"]
+[ext_resource type="Texture2D" uid="uid://cphbtelngxe2h" path="res://assets/graphics/powers/dmg_wave.png" id="4_euibs"]
+
+[resource]
+script = ExtResource("3_gu76x")
+energy = 1
+uses_max = 1
+description = "POWER_DESCRIPTION_DMG_WAVE"
+overload_description = "POWER_DESCRIPTION_OVERLOAD_DMG_WAVE"
+effect = ExtResource("1_strta")
+effect_overload = ExtResource("2_dfe67")
+texture = ExtResource("4_euibs")
+name = "POWER_DMG_WAVE"

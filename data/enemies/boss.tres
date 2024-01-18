@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="EnemyBlueprint" load_steps=2 format=3 uid="uid://rxleyrp2g6fl"]
+[gd_resource type="Resource" script_class="EnemyBlueprint" load_steps=3 format=3 uid="uid://rxleyrp2g6fl"]
 
 [ext_resource type="Script" path="res://data/enemies/enemy_blueprint.gd" id="1_wkmmh"]
+[ext_resource type="Texture2D" uid="uid://v2kog3r6h7s4" path="res://assets/graphics/characters/boss.png" id="2_wjct4"]
 
 [resource]
 script = ExtResource("1_wkmmh")
-hp_max = 9
-damage = 9
-card_loss = 0
+hp_max = 7
+damage = 7
+power_loss = 0
+texture = ExtResource("2_wjct4")
+name = "ENEMY_BOSS"

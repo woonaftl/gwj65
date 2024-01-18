@@ -11,14 +11,17 @@ config_version=5
 [application]
 
 config/name="Gwj 65"
-run/main_scene="res://game.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/graphics/icon.svg"
 
 [autoload]
 
-Player="*res://player.gd"
-EnemyHelper="*res://enemy_helper.gd"
+Global="*res://scripts/global.gd"
+UserSettings="*res://scripts/user_settings.gd"
+AudioBus="*res://scenes/audio_bus.tscn"
+Player="*res://scripts/player.gd"
+EnemyHelper="*res://scripts/enemy_helper.gd"
 
 [display]
 
@@ -28,6 +31,14 @@ window/size/viewport_height=720
 [filesystem]
 
 import/blender/enabled=false
+
+[gui]
+
+theme/custom="res://theme.tres"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://text/ui.en.translation", "res://text/ui.ru.translation")
 
 [rendering]
 

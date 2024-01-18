@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="EnemyBlueprint" load_steps=2 format=3 uid="uid://kdq6m4lxs4wr"]
+[gd_resource type="Resource" script_class="EnemyBlueprint" load_steps=3 format=3 uid="uid://kdq6m4lxs4wr"]
 
 [ext_resource type="Script" path="res://data/enemies/enemy_blueprint.gd" id="1_yxdlt"]
+[ext_resource type="Texture2D" uid="uid://nc6ah77lllo7" path="res://assets/graphics/characters/thief.png" id="2_c0nar"]
 
 [resource]
 script = ExtResource("1_yxdlt")
 hp_max = 1
 damage = 0
 power_loss = 1
+texture = ExtResource("2_c0nar")
+name = "ENEMY_THIEF"

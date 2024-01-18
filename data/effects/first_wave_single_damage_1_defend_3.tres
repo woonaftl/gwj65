@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://84pddpyeg6l7"]
+
+[ext_resource type="Script" path="res://data/effects/first_wave_single_damage_1_defend_3.gd" id="1_gc0of"]
+
+[resource]
+script = ExtResource("1_gc0of")

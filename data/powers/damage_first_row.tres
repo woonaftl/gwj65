@@ -1,14 +1,17 @@
-[gd_resource type="Resource" script_class="PowerBlueprint" load_steps=4 format=3 uid="uid://dw3ktvtmnpmbs"]
+[gd_resource type="Resource" script_class="PowerBlueprint" load_steps=5 format=3 uid="uid://dw3ktvtmnpmbs"]
 
-[ext_resource type="Resource" uid="uid://gbg043jaeq4x" path="res://data/effects/first_wave_single_damage_2.tres" id="1_eff1h"]
-[ext_resource type="Resource" uid="uid://dkiur5cwplj3f" path="res://data/effects/first_wave_single_and_behind_damage_2.tres" id="2_uo6fm"]
+[ext_resource type="Resource" uid="uid://gbg043jaeq4x" path="res://data/effects/first_wave_single_damage_4.tres" id="1_8ctk5"]
+[ext_resource type="Resource" uid="uid://dkiur5cwplj3f" path="res://data/effects/first_wave_single_damage_4_behind_2.tres" id="2_y51r0"]
 [ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="3_rx514"]
+[ext_resource type="Texture2D" uid="uid://bwytph5l611uh" path="res://assets/graphics/powers/dmg_first_wave.png" id="4_6aybj"]
 
 [resource]
 script = ExtResource("3_rx514")
-energy = 2
+energy = 3
 uses_max = 1
-description = "2 dmg to any enemy in front wave"
-overload_description = "2 dmg to any enemy in front wave and 2 dmg to enemy right behind it"
-effect = ExtResource("1_eff1h")
-effect_overload = ExtResource("2_uo6fm")
+description = "POWER_DESCRIPTION_DMG_FIRST_ROW"
+overload_description = "POWER_DESCRIPTION_OVERLOAD_DMG_FIRST_ROW"
+effect = ExtResource("1_8ctk5")
+effect_overload = ExtResource("2_y51r0")
+texture = ExtResource("4_6aybj")
+name = "POWER_DMG_FIRST_ROW"
