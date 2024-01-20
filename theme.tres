@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bjqn84vxbksw1"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bjqn84vxbksw1"]
 
 [ext_resource type="Texture2D" uid="uid://ducc420t4avlq" path="res://assets/graphics/ui/button_disabled.png" id="1_obj8a"]
 [ext_resource type="Texture2D" uid="uid://buuxnowqbfbb2" path="res://assets/graphics/ui/button_default.png" id="2_ii2sg"]
 [ext_resource type="Texture2D" uid="uid://p4yvliifp5px" path="res://assets/graphics/ui/button_hover.png" id="3_52osh"]
 [ext_resource type="Texture2D" uid="uid://bcav7rjsea7lg" path="res://assets/graphics/ui/button_pressed.png" id="4_f3jr3"]
+[ext_resource type="Texture2D" uid="uid://dkrqajlhxo8bf" path="res://assets/graphics/ui/panel.png" id="5_ppov7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1t2md"]
 texture = ExtResource("1_obj8a")
@@ -20,9 +21,18 @@ texture = ExtResource("2_ii2sg")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jfsnp"]
 texture = ExtResource("4_f3jr3")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3qbq"]
+texture = ExtResource("5_ppov7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o86xx"]
+texture = ExtResource("5_ppov7")
+
 [resource]
+default_font_size = 22
 Button/styles/disabled = SubResource("StyleBoxTexture_1t2md")
 Button/styles/focus = SubResource("StyleBoxTexture_0g1vv")
 Button/styles/hover = SubResource("StyleBoxTexture_4l4yn")
 Button/styles/normal = SubResource("StyleBoxTexture_2hlk7")
 Button/styles/pressed = SubResource("StyleBoxTexture_jfsnp")
+Panel/styles/panel = SubResource("StyleBoxTexture_h3qbq")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_o86xx")

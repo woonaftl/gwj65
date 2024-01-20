@@ -39,7 +39,7 @@ theme/custom_font="res://assets/fonts/iwona/ttf/Iwona-Regular.ttf"
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://text/ui.en.translation", "res://text/ui.ru.translation")
+locale/translations=PackedStringArray("res://text/ui.en.translation", "res://text/ui.ru.translation", "res://text/dialogue.en.translation", "res://text/dialogue.ru.translation", "res://text/powers.en.translation", "res://text/powers.ru.translation")
 
 [rendering]
 

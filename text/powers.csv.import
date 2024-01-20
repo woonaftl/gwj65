@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dcysdmxa7h3i4"
+
+[deps]
+
+files=["res://text/powers.en.translation", "res://text/powers.ru.translation"]
+
+source_file="res://text/powers.csv"
+dest_files=["res://text/powers.en.translation", "res://text/powers.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0

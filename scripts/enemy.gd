@@ -32,6 +32,7 @@ var outline_material: Material = preload("res://shaders/outline_material.tres")
 		hp_bar.max_value = blueprint.hp_max
 		hp_current = blueprint.hp_max
 		sprite.texture = blueprint.texture
+		sprite.scale = Vector2(96, 96) / blueprint.texture.get_size()
 
 
 @onready var hp_current: int = 1:

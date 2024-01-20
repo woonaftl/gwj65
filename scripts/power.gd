@@ -15,16 +15,13 @@ signal clicked(power: Power)
 @onready var blueprint: PowerBlueprint:
 	set(new_value):
 		blueprint = new_value
-		energy_label.text = str(blueprint.energy)
 		uses_left = blueprint.uses_max
-		uses_label.text = "%s / %s" % [uses_left, blueprint.uses_max]
 		sprite.texture = blueprint.texture
 
 
 @onready var uses_left: int:
 	set(new_value):
 		uses_left = clamp(new_value, 0, blueprint.uses_max)
-		uses_label.text = "%s / %s" % [uses_left, blueprint.uses_max]
 		if uses_left == 0:
 			remove_from_group("selected_power")
 
@@ -36,6 +33,8 @@ func _process(_delta: float) -> void:
 		tr(blueprint.overload_description)
 	]
 	description_label.visible = is_in_group("selected_power") or is_in_group("new_power")
+	energy_label.text = "%s: %s" % [tr("ENERGY"), str(blueprint.energy)]
+	uses_label.text = "%s: %s / %s" % [tr("USES"), uses_left, blueprint.uses_max]
 	name_label.text = tr(blueprint.name)
 	if Player.is_overloaded():
 		description_label.text = blueprint.overload_description
@@ -45,7 +44,7 @@ func _process(_delta: float) -> void:
 		description_label.remove_theme_color_override("default_color")
 	if is_in_group("selected_power"):
 		modulate = Color.RED
-	elif uses_left == 0:
+	elif uses_left == 0 or is_in_group("available_power") and get_tree().current_scene.state != Game.State.CHOOSE_POWERS:
 		modulate = Color.DARK_GRAY
 	else:
 		modulate = Color.WHITE

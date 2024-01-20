@@ -5,5 +5,5 @@
 [resource]
 shader = ExtResource("1_sulte")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_width = 3
+shader_parameter/outline_width = 64
 shader_parameter/is_square = false

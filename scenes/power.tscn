@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0pe7x1rpa6fm"]
+[gd_scene load_steps=4 format=3 uid="uid://c0pe7x1rpa6fm"]
 
 [ext_resource type="Script" path="res://scripts/power.gd" id="1_46f8c"]
+[ext_resource type="Texture2D" uid="uid://f5rmg5js7nnv" path="res://assets/graphics/ui/panel_power.png" id="1_lopaf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0yed"]
+texture = ExtResource("1_lopaf")
 
 [node name="Power" type="PanelContainer"]
 custom_minimum_size = Vector2(256, 96)
+theme_override_styles/panel = SubResource("StyleBoxTexture_o0yed")
 script = ExtResource("1_46f8c")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -23,6 +28,29 @@ mouse_filter = 1
 text = "PLACEHOLDER_NAME"
 fit_content = true
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EnergyLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "ENRGY: Z"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UsesLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "USES: X / Y"
+
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(192, 64)
 layout_mode = 2
@@ -40,34 +68,5 @@ layout_mode = 2
 mouse_filter = 1
 text = "PLACEHOLDER_DESCRIPTION"
 fit_content = true
-
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 8
-
-[node name="EnergyLabel" type="Label" parent="MarginContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 28
-text = "Z"
-
-[node name="MarginContainer3" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 8
-
-[node name="UsesLabel" type="Label" parent="MarginContainer3"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 28
-text = "X / Y"
-horizontal_alignment = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

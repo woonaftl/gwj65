@@ -9,6 +9,12 @@ const TIME_BETWEEN_WAVES_BASE: float = 0.8
 var game_speed: float = 1.0
 var language_chosen = false
 var is_victory: bool = false
+var need_tutorial_1: bool = true
+var need_tutorial_2: bool = true
+var need_tutorial_3: bool = true
+var need_tutorial_4: bool = true
+var need_tutorial_5: bool = true
+var need_tutorial_6: bool = true
 
 
 func _ready() -> void:

@@ -1,4 +1,5 @@
 extends Control
+class_name Game
 
 
 const WAVE_COUNT = 19
@@ -39,6 +40,7 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 @onready var quit_dialog = %QuitDialog
 @onready var no_powers_dialog = %NoPowersDialog
 @onready var unused_dialog = %UnusedDialog
+@onready var tutorial_panel = %TutorialPanel
 
 
 @onready var wave: int = 0:
@@ -57,6 +59,12 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 				end_turn_button.text = tr("ACTIVATE")
 			State.CHOOSE_TARGETS:
 				end_turn_button.text = tr("END TURN")
+				if UserSettings.need_tutorial_4:
+					tutorial_panel.text = tr("TUTORIAL_4")
+					tutorial_panel.visible = true
+					tutorial_panel.global_position = Vector2(64, 96)
+					await tutorial_panel.closed
+					UserSettings.need_tutorial_4 = false
 			State.ENEMY_TURN:
 				end_turn_button.text = tr("ENEMY TURN")
 				enemy_turn()
@@ -67,11 +75,32 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 func _ready() -> void:
 	Player.defend = 0
 	Player.hp = 3
+	await get_tree().create_timer(0.2).timeout
+	intro()
+
+
+func intro() -> void:
+	tutorial_panel.text = tr("INTRO_1")
+	tutorial_panel.visible = true
+	tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
+	await get_tree().create_timer(0.1).timeout
+	await tutorial_panel.closed
+	for x in range(0, 4):
+		spawn_wave(x)
+	tutorial_panel.text = tr("INTRO_2")
+	tutorial_panel.visible = true
+	await get_tree().create_timer(0.1).timeout
+	await tutorial_panel.closed
 	add_starting_power(preload("res://data/powers/damage_multiple_uses.tres"))
 	add_starting_power(preload("res://data/powers/damage_first_row_defend.tres"))
 	add_starting_power(preload("res://data/powers/damage_multiple_enemies.tres"))
-	for x in range(0, 4):
-		spawn_wave(x)
+	if UserSettings.need_tutorial_1:
+		tutorial_panel.text = tr("TUTORIAL_1")
+		tutorial_panel.visible = true
+		tutorial_panel.global_position = Vector2(64, 96)
+		await get_tree().create_timer(0.1).timeout
+		await tutorial_panel.closed
+		UserSettings.need_tutorial_1 = false
 
 
 func _process(_delta: float) -> void:
@@ -96,6 +125,11 @@ func _process(_delta: float) -> void:
 	for power in get_tree().get_nodes_in_group("unavailable_power"):
 		if not power.get_parent() == discard_container:
 			power.reparent(discard_container, false)
+
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		tutorial_panel.close()
 
 
 func add_starting_power(blueprint: PowerBlueprint) -> void:
@@ -140,8 +174,20 @@ func enemy_turn() -> void:
 			Player.defend = 0
 			discard_used_powers()
 			prepare_power_options()
+			if UserSettings.need_tutorial_5:
+				tutorial_panel.text = tr("TUTORIAL_5")
+				tutorial_panel.visible = true
+				tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
+				await tutorial_panel.closed
+				UserSettings.need_tutorial_5 = false
 			reward_window.popup_on_parent(get_rect())
 			state = State.CHOOSE_NEW_CARD
+			if UserSettings.need_tutorial_6:
+				tutorial_panel.text = tr("TUTORIAL_6")
+				tutorial_panel.visible = true
+				tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
+				await tutorial_panel.closed
+				UserSettings.need_tutorial_6 = false
 
 
 func _on_hide_button_pressed():
@@ -239,6 +285,18 @@ func _on_power_clicked(power: Power) -> void:
 	if state == State.CHOOSE_POWERS and power.is_in_group("available_power"):
 		power.remove_from_group("available_power")
 		power.add_to_group("active_power")
+		if UserSettings.need_tutorial_2:
+			tutorial_panel.text = tr("TUTORIAL_2")
+			tutorial_panel.visible = true
+			tutorial_panel.global_position = Vector2(64, 96)
+			await tutorial_panel.closed
+			UserSettings.need_tutorial_2 = false
+		if UserSettings.need_tutorial_3:
+			tutorial_panel.text = tr("TUTORIAL_3")
+			tutorial_panel.visible = true
+			tutorial_panel.global_position = Vector2(64, 480)
+			await tutorial_panel.closed
+			UserSettings.need_tutorial_3 = false
 	elif state == State.CHOOSE_POWERS and power.is_in_group("active_power"):
 		power.remove_from_group("active_power")
 		power.add_to_group("available_power")

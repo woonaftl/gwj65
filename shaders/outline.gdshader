@@ -3,7 +3,7 @@ shader_type canvas_item;
 const float ALPHA_THRESHOLD = 0.01;
 
 uniform vec4 outline_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
-uniform int outline_width : hint_range(0, 3) = 3;
+uniform int outline_width : hint_range(0, 64) = 64;
 uniform bool is_square = false;
 
 void fragment() {

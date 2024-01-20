@@ -23,14 +23,16 @@ END TURN,END TURN,КОНЕЦ ХОДА
 ENEMY TURN,ENEMY TURN,ХОД ПРОТИВНИКА
 CHOOSE REWARD,CHOOSE REWARD,ВЫБРАТЬ НАГРАДУ
 DAMAGE,DAMAGE,УРОН
+USES,USES,РАЗ
+ENERGY,ENERGY,ЭНЕРГИЯ
 LOSE_POWER_PART_1,"MAKES YOU\nLOSE","ПОХИЩАЕТ\n"
 LOSE_POWER_PART_2,"POWER",УМЕНИЕ
 POWER LOST,POWER LOST,УМЕНИЕ ПОТЕРЯНО
 REWARD_TITLE,CHOOSE YOUR REWARD:,ВЫБЕРИТЕ НАГРАДУ:
-RETURN_POWERS_REWARD,"[center]RETURN ALL POWERS\nAND LOSE 1 HP[/center]","[center]ВЕРНУТЬ ВСЕ УМЕНИЯ\nИ ПОТЕРЯТЬ\n1 ЗДОРОВЬЕ[/center]"
-ADD_POWER_REWARD,"[center]GET NEW POWER\nAND GAIN 1 HP[/center]","[center]ПОЛУЧИТЬ НОВОЕ УМЕНИЕ\nИ ПОЛУЧИТЬ\n1 ЗДОРОВЬЕ[/center]"
+RETURN_POWERS_REWARD,"[center]RETURN ALL POWERS[/center]","[center]ВЕРНУТЬ ВСЕ УМЕНИЯ\nИ ПОТЕРЯТЬ\n1 ЗДОРОВЬЕ[/center]"
+ADD_POWER_REWARD,"[center]GET NEW POWER[/center]","[center]ПОЛУЧИТЬ НОВОЕ УМЕНИЕ\nИ ПОЛУЧИТЬ\n1 ЗДОРОВЬЕ[/center]"
 THANKS_FOR_PLAYING,[center]THANKS FOR PLAYING[/center],[center]СПАСИБО ЗА ИГРУ[/center]
-CREDITS_MADE_BY,[center]Game by Daireann and Woona[/center],"[center]Авторы: Daireann, Woona[/center]"
+CREDITS_MADE_BY,[center]Art: Daireann\nCoding: Woona[/center],"[center]Графика: Daireann\nКод: Woona[/center]"
 CREDITS_JAM,[center]Godot Wild Jam 65[/center],[center]Godot Wild Jam 65[/center]
 CREDITS_THEME,[center]Theme: OVERLOAD[/center],[center]Тема: OVERLOAD[/center]
 CREDITS_ENGINE,[center]Powered by Godot Engine 4.2[/center],[center]Движок Godot Engine 4.2[/center]
@@ -45,30 +47,6 @@ ENEMY_BASIC,Fighter,Боец
 ENEMY_ARMORED,Tank,Танк
 ENEMY_THIEF,Thief,Вор
 ENEMY_BOSS,Boss,Босс
-POWER_DMG_FIRST_ROW,Retribution,Кара
-POWER_DEFEND,Barrier,Барьер
-POWER_DMG_DISTANCE,Surprise Attack,Внезапный Удар
-POWER_DMG_NEIGHBORS,Blast,Взрыв
-POWER_DMG_MULTIUSE,Quick Attack,Быстрый Удар
-POWER_DMG_WAVE,Shock Wave,Ударная Волна
-POWER_MIND_CONTROL,Takeover,Захват
-POWER_PULL_DEFEND,Attraction Beam,Притягивающий Луч
-POWER_DESCRIPTION_DMG_FIRST_ROW,"4 dmg to any enemy in first wave","4 урона противнику в первой волне"
-POWER_DESCRIPTION_DEFEND,"1 damage to target in first wave; 2 defend","1 урона противнику в первой волне; 2 защиты"
-POWER_DESCRIPTION_DMG_DISTANCE,"1-4 dmg to 1 enemy, farther enemies take more dmg","1-4 урона противнику, чем дальше цель, тем больше урона"
-POWER_DESCRIPTION_DMG_NEIGHBORS,"1 dmg to a target and its neighbors","1 урона цели и её соседям"
-POWER_DESCRIPTION_DMG_MULTIUSE,"1 dmg to target","1 урона цели"
-POWER_DESCRIPTION_DMG_WAVE,"2 dmg to target, 1 dmg to neighbors in same wave","2 урона цели, 1 урона соседям в этой волне"
-POWER_DESCRIPTION_MIND_CONTROL,"Target enemy attacks an enemy behind it\n(Cannot target Thiefs)","Цель атакует соседа сзади\n(Нельзя выбирать целью Вора)"
-POWER_DESCRIPTION_PULL_DEFEND,"Pull target one wave closer; Defend 1 for each enemy in first wave\n(Target cannot be in first wave, cannot have any other enemies in front of it)","Притянуть цель на 1 волну ближе; 1 защиты за каждого противника в первой волне\n(Нельщя выбрать цель в первой волне, перед целью не должно быть противников)"
-POWER_DESCRIPTION_OVERLOAD_DMG_FIRST_ROW,"4 dmg to any enemy in first wave and 2 dmg to enemy right behind it","4 урона противнику в первой волне и 2 урона противнику позади цели"
-POWER_DESCRIPTION_OVERLOAD_DEFEND,"1 damage to target in first wave; 3 defend","1 урона противнику в первой волне; 3 защиты"
-POWER_DESCRIPTION_OVERLOAD_DMG_DISTANCE,"1-4 dmg to 1 enemy, farther enemies take more dmg; defend based on damage dealt","1-4 урона противнику, чем дальше цель, тем больше урона; защита в зависимости от нанесённого урона"
-POWER_DESCRIPTION_OVERLOAD_DMG_NEIGHBORS,"1 dmg to all enemies in target square","1 урона всем противникам в квадратной области"
-POWER_DESCRIPTION_OVERLOAD_DMG_MULTIUSE,"1 dmg to target; 1 dmg to another random enemy","1 урона цели; 1 урона другому случайному противнику"
-POWER_DESCRIPTION_OVERLOAD_DMG_WAVE,"2 dmg to target, 1 dmg to other enemies in same wave","2 урона цели; 1 урона остальным противникам в этой волне"
-POWER_DESCRIPTION_OVERLOAD_MIND_CONTROL,"Target enemy attacks an enemy behind it, dealing double damage\n(Cannot target Thiefs)","Цель атакует соседа сзади и наносит удвоенный урон\n(Нельзя выбирать целью Вора)"
-POWER_DESCRIPTION_OVERLOAD_PULL_DEFEND,"Pull target one wave closer; Defend 2 for each enemy in first wave\n(Target cannot be in first wave, cannot have any other enemies in front of it)","Притянуть цель на 1 волну ближе; 2 защиты за каждого противника в первой волне\n(Нельщя выбрать цель в первой волне, перед целью не должно быть противников)"
 CONFIRM_DIALOG,ARE YOU SURE?,ВЫ УВЕРЕНЫ?
 OK,OK,ДА
 CANCEL,CANCEL,ОТМЕНА
