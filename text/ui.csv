@@ -35,7 +35,7 @@ THANKS_FOR_PLAYING,[center]THANKS FOR PLAYING[/center],[center]СПАСИБО З
 CREDITS_MADE_BY,[center]Art: Daireann\nCoding: Woona[/center],"[center]Графика: Daireann\nКод: Woona[/center]"
 CREDITS_JAM,[center]Godot Wild Jam 65[/center],[center]Godot Wild Jam 65[/center]
 CREDITS_THEME,[center]Theme: OVERLOAD[/center],[center]Тема: OVERLOAD[/center]
-CREDITS_ENGINE,[center]Powered by Godot Engine 4.2[/center],[center]Движок Godot Engine 4.2[/center]
+CREDITS_ENGINE,[center]Powered by Godot Engine 4.2\nUsing Iwona Font[/center],[center]Движок Godot Engine 4.2\nИспользует шрифт Iwona[/center]
 VISIT ITCH.IO,VISIT ITCH.IO,НА САЙТ ITCH.IO
 TOOLTIP_HEALTH,"Your health\nWhen it reaches 0, you die","Здоровье\nКогда оно достигает 0, ты умираешь"
 TOOLTIP_DEFEND,"Your defense\nBlocks incoming damage","Защита\nБлокирует урон противников"

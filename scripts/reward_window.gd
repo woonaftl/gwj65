@@ -1,4 +1,4 @@
-extends Window
+extends PanelContainer
 
 
 signal closed
@@ -9,10 +9,11 @@ signal closed
 @onready var cannot_return_label = %CannotReturnLabel
 
 
-func _on_about_to_popup():
+func popup():
 	discard_scroll_container.visible = Player.hp > 1
 	return_option.disabled = Player.hp == 1
 	cannot_return_label.visible = Player.hp == 1
+	visible = true
 
 
 func _on_return_option_pressed() -> void:

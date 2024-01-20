@@ -4,42 +4,53 @@
 [ext_resource type="Texture2D" uid="uid://b55m7xk83hhoi" path="res://assets/graphics/icons/hp.png" id="1_dhxkq"]
 
 [node name="NewPowerOption" type="Button"]
+custom_minimum_size = Vector2(260, 0)
 offset_right = 256.0
 offset_bottom = 256.0
 script = ExtResource("1_6mm7y")
 
-[node name="NewPowerContainer" type="VBoxContainer" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 0)
-layout_mode = 2
-offset_right = 256.0
-offset_bottom = 256.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="RichTextLabel" parent="NewPowerContainer"]
+[node name="Label" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 mouse_filter = 1
 bbcode_enabled = true
 text = "ADD_POWER_REWARD"
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NewPowerContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="NewPowerContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="NewPowerContainer/HBoxContainer/CenterContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/CenterContainer"]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="NewPowerContainer/HBoxContainer/CenterContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HBoxContainer/CenterContainer/Control"]
 texture = ExtResource("1_dhxkq")
 
-[node name="Label" type="Label" parent="NewPowerContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "+ 1"
+
+[node name="NewPowerContainer" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

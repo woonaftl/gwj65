@@ -62,7 +62,7 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 				if UserSettings.need_tutorial_4:
 					tutorial_panel.text = tr("TUTORIAL_4")
 					tutorial_panel.visible = true
-					tutorial_panel.global_position = Vector2(64, 96)
+					tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
 					await tutorial_panel.closed
 					UserSettings.need_tutorial_4 = false
 			State.ENEMY_TURN:
@@ -180,7 +180,7 @@ func enemy_turn() -> void:
 				tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
 				await tutorial_panel.closed
 				UserSettings.need_tutorial_5 = false
-			reward_window.popup_on_parent(get_rect())
+			reward_window.popup()
 			state = State.CHOOSE_NEW_CARD
 			if UserSettings.need_tutorial_6:
 				tutorial_panel.text = tr("TUTORIAL_6")
@@ -191,11 +191,11 @@ func enemy_turn() -> void:
 
 
 func _on_hide_button_pressed():
-	reward_window.hide()
+	reward_window.visible = false
 
 
 func _on_reward_window_closed():
-	reward_window.hide()
+	reward_window.visible = false
 	state = State.CHOOSE_POWERS
 
 
@@ -235,10 +235,10 @@ func choose_next_enemy_blueprint() -> EnemyBlueprint:
 		enemy_points -= 25
 		return preload("res://data/enemies/boss.tres")
 	if randi_range(0, 8) > 7 - enemy_points:
-		if randf() > 2. / 3.:
+		if randf() > 0.5:
 			enemy_points -= 7
 			return preload("res://data/enemies/basic.tres")
-		elif randf() > 1. / 3.:
+		elif randf() > 0.25:
 			enemy_points -= 8
 			return preload("res://data/enemies/armored.tres")
 		else:
@@ -250,7 +250,7 @@ func choose_next_enemy_blueprint() -> EnemyBlueprint:
 func spawn_enemy(coords: Vector2i, blueprint: EnemyBlueprint) -> void:
 	if blueprint != null:
 		var enemy: Enemy = preload("res://scenes/enemy.tscn").instantiate()
-		add_child(enemy)
+		$MarginContainer.add_sibling(enemy)
 		enemy.coords = coords
 		enemy.global_position = EnemyHelper.get_grid_target_position(coords + Vector2i.RIGHT)
 		enemy.clicked.connect(_on_enemy_clicked)
@@ -362,7 +362,7 @@ func _on_end_turn_button_pressed() -> void:
 	deselect_all()
 	match state:
 		State.CHOOSE_NEW_CARD:
-			reward_window.popup_on_parent(get_rect())
+			reward_window.popup()
 		State.CHOOSE_POWERS:
 			if len(get_tree().get_nodes_in_group("available_power")) > 0 and len(get_tree().get_nodes_in_group("active_power")) == 0:
 				no_powers_dialog.popup_centered()
@@ -406,7 +406,7 @@ func _on_no_powers_dialog_canceled():
 
 func _on_no_powers_dialog_confirmed():
 	no_powers_dialog.hide()
-	state = State.CHOOSE_TARGETS
+	state = State.ENEMY_TURN
 
 
 func _on_unused_dialog_canceled():

@@ -33,9 +33,12 @@ theme_override_constants/separation = 16
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.929412, 0.898039, 0.580392, 1)
+theme_override_colors/font_outline_color = Color(0.929412, 0.898039, 0.580392, 1)
+theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 96
 bbcode_enabled = true
-text = "UNTITLED GAME"
+text = "FORT MAGICA"
 fit_content = true
 autowrap_mode = 0
 

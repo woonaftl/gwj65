@@ -11,8 +11,6 @@ var outline_material: Material = preload("res://shaders/outline_material.tres")
 
 @onready var hp_bar = %HitPointsBar
 @onready var hp_label = %HitPointsLabel
-@onready var description_label = %DescriptionLabel
-@onready var description_panel = %DescriptionPanel
 @onready var sprite = %Sprite2D
 @onready var coords: Vector2i
 
@@ -78,7 +76,7 @@ func _process(delta: float) -> void:
 			blueprint.power_loss,
 			tr("LOSE_POWER_PART_2")
 		]
-	description_label.text = description
+	tooltip_text = description
 
 
 func _on_gui_input(event: InputEvent) -> void:
@@ -104,11 +102,9 @@ func _on_mouse_entered():
 				sprite.material = outline_material
 				for enemy in selected_power.blueprint.effect.get_damaged_targets(self):
 					enemy.is_target = true
-	description_panel.visible = true
 
 
 func _on_mouse_exited():
-	description_panel.visible = false
 	sprite.material = null
 	for enemy in EnemyHelper.get_all_enemies():
 		enemy.is_target = false

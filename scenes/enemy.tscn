@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvmr46r6ql433"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_tbt5e"]
-[ext_resource type="Texture2D" uid="uid://byuas1afyksl" path="res://assets/graphics/ui/hp_bar_empty.png" id="2_7bor0"]
-[ext_resource type="Texture2D" uid="uid://c44103jblfdwc" path="res://assets/graphics/ui/hp_bar_full.png" id="3_cttta"]
+[ext_resource type="Texture2D" uid="uid://ctftrxirb4jis" path="res://assets/graphics/ui/hp_bar_empty.png" id="2_7bor0"]
+[ext_resource type="Texture2D" uid="uid://c156sdquha6hx" path="res://assets/graphics/ui/hp_bar_full.png" id="3_cttta"]
 
 [node name="Enemy" type="Control"]
 custom_minimum_size = Vector2(128, 128)
@@ -36,6 +36,11 @@ offset_left = -48.0
 offset_right = 48.0
 offset_bottom = 24.0
 grow_horizontal = 2
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
 texture_under = ExtResource("2_7bor0")
 texture_progress = ExtResource("3_cttta")
 
@@ -53,33 +58,8 @@ offset_right = 13.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 16
 text = "X/Y"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DescriptionPanel" type="Panel" parent="."]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(128, 96)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -32.0
-offset_bottom = 32.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="DescriptionLabel" type="Label" parent="DescriptionPanel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "DAMAGE: Z"
 horizontal_alignment = 1
 vertical_alignment = 1
 

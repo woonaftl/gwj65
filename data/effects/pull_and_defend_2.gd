@@ -9,3 +9,7 @@ func apply(target: Enemy) -> void:
 
 func is_target_valid(target: Enemy) -> bool:
 	return target.coords.x > 0 and len(EnemyHelper.get_enemies_in_front_of(target.coords)) == 0
+
+
+func get_damaged_targets(_target: Enemy) -> Array:
+	return []
