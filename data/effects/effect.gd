@@ -8,3 +8,7 @@ func apply(_target: Enemy) -> void:
 
 func is_target_valid(_target: Enemy) -> bool:
 	return true
+
+
+func get_damaged_targets(target: Enemy) -> Array:
+	return [target]

@@ -7,6 +7,7 @@ const TIME_BETWEEN_WAVES_BASE: float = 0.8
 
 
 var game_speed: float = 1.0
+var language_chosen = false
 var is_victory: bool = false
 
 

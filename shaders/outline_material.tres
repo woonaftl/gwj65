@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://1f4vdlybnj1f"]
+
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_sulte"]
+
+[resource]
+shader = ExtResource("1_sulte")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 3
+shader_parameter/is_square = false

@@ -389,17 +389,20 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="ReturnOption" type="PanelContainer" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="ReturnOption" type="Button" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ReturnOption"]
 layout_mode = 2
+offset_left = 16.0
+offset_right = 268.0
+offset_bottom = 441.0
 
 [node name="Label" type="RichTextLabel" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 bbcode_enabled = true
 text = "RETURN_POWERS_REWARD"
 fit_content = true
@@ -423,25 +426,55 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "- 1"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer"]
+[node name="CannotReturnLabel" type="RichTextLabel" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "RETURN_POWERS_UNAVAILABLE_HINT"
+fit_content = true
+
+[node name="DiscardScrollContainer" type="ScrollContainer" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DiscardContainer" type="VBoxContainer" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer/ScrollContainer"]
+[node name="DiscardContainer" type="VBoxContainer" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer/DiscardScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
 [node name="NewPowerOption" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("12_k1650")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="NewPowerOption2" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("12_k1650")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="NewPowerOption3" parent="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("12_k1650")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuitDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "CONFIRM_DIALOG"
+dialog_text = "QUIT_DIALOG_TEXT"
+cancel_button_text = "CANCEL"
+
+[node name="NoPowersDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "CONFIRM_DIALOG"
+dialog_text = "NO_POWERS_DIALOG_TEXT"
+cancel_button_text = "CANCEL"
+
+[node name="UnusedDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "CONFIRM_DIALOG"
+dialog_text = "UNUSED_DIALOG_TEXT"
+cancel_button_text = "CANCEL"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
@@ -449,7 +482,13 @@ layout_mode = 2
 [connection signal="about_to_popup" from="RewardWindow" to="RewardWindow" method="_on_about_to_popup"]
 [connection signal="closed" from="RewardWindow" to="." method="_on_reward_window_closed"]
 [connection signal="pressed" from="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HideButton" to="." method="_on_hide_button_pressed"]
-[connection signal="gui_input" from="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ReturnOption" to="RewardWindow" method="_on_return_option_gui_input"]
+[connection signal="pressed" from="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ReturnOption" to="RewardWindow" method="_on_return_option_pressed"]
 [connection signal="clicked" from="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/NewPowerOption" to="RewardWindow" method="_on_new_power_option_clicked"]
 [connection signal="clicked" from="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/NewPowerOption2" to="RewardWindow" method="_on_new_power_option_2_clicked"]
 [connection signal="clicked" from="RewardWindow/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/NewPowerOption3" to="RewardWindow" method="_on_new_power_option_3_clicked"]
+[connection signal="canceled" from="QuitDialog" to="." method="_on_quit_dialog_canceled"]
+[connection signal="confirmed" from="QuitDialog" to="." method="_on_quit_dialog_confirmed"]
+[connection signal="canceled" from="NoPowersDialog" to="." method="_on_no_powers_dialog_canceled"]
+[connection signal="confirmed" from="NoPowersDialog" to="." method="_on_no_powers_dialog_confirmed"]
+[connection signal="canceled" from="UnusedDialog" to="." method="_on_unused_dialog_canceled"]
+[connection signal="confirmed" from="UnusedDialog" to="." method="_on_unused_dialog_confirmed"]

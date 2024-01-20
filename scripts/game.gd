@@ -8,6 +8,7 @@ const ALL_POWER_BLUEPRINTS = [
 	preload("res://data/powers/damage_higher_farther.tres"),
 	preload("res://data/powers/damage_multiple_enemies.tres"),
 	preload("res://data/powers/damage_multiple_uses.tres"),
+	preload("res://data/powers/damage_wave.tres"),
 	preload("res://data/powers/mind_control.tres"),
 	preload("res://data/powers/pull_and_defend.tres"),
 ]
@@ -35,6 +36,9 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 @onready var waves_label = %WavesLabel
 @onready var player_sprite = %PlayerSprite
 @onready var enemy_grid_origin = %EnemyGridOrigin
+@onready var quit_dialog = %QuitDialog
+@onready var no_powers_dialog = %NoPowersDialog
+@onready var unused_dialog = %UnusedDialog
 
 
 @onready var wave: int = 0:
@@ -55,6 +59,7 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 				end_turn_button.text = tr("END TURN")
 			State.ENEMY_TURN:
 				end_turn_button.text = tr("ENEMY TURN")
+				enemy_turn()
 			State.CHOOSE_NEW_CARD:
 				end_turn_button.text = tr("CHOOSE REWARD")
 
@@ -301,10 +306,18 @@ func _on_end_turn_button_pressed() -> void:
 		State.CHOOSE_NEW_CARD:
 			reward_window.popup_on_parent(get_rect())
 		State.CHOOSE_POWERS:
-			state = State.CHOOSE_TARGETS
+			if len(get_tree().get_nodes_in_group("available_power")) > 0 and len(get_tree().get_nodes_in_group("active_power")) == 0:
+				no_powers_dialog.popup_centered()
+			else:
+				state = State.CHOOSE_TARGETS
 		State.CHOOSE_TARGETS:
-			state = State.ENEMY_TURN
-			enemy_turn()
+			if get_tree().get_nodes_in_group("active_power").any(
+				func(power):
+					return power.uses_left > 0
+			):
+				unused_dialog.popup_centered()
+			else:
+				state = State.ENEMY_TURN
 
 
 func _on_settings_button_pressed() -> void:
@@ -317,4 +330,31 @@ func _on_settings_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	AudioBus.play("Click")
+	quit_dialog.popup_centered()
+
+
+func _on_quit_dialog_canceled():
+	quit_dialog.hide()
+
+
+func _on_quit_dialog_confirmed():
+	quit_dialog.hide()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_no_powers_dialog_canceled():
+	no_powers_dialog.hide()
+
+
+func _on_no_powers_dialog_confirmed():
+	no_powers_dialog.hide()
+	state = State.CHOOSE_TARGETS
+
+
+func _on_unused_dialog_canceled():
+	unused_dialog.hide()
+
+
+func _on_unused_dialog_confirmed():
+	no_powers_dialog.hide()
+	state = State.ENEMY_TURN

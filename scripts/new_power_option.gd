@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Button
 class_name NewPowerOption
 
 
@@ -14,6 +14,5 @@ signal clicked(power: Power)
 		new_power_container.add_child(power)
 
 
-func _on_gui_input(event: InputEvent):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		clicked.emit(power)
+func _on_pressed():
+	clicked.emit(power)

@@ -40,32 +40,38 @@ TOOLTIP_DEFEND,"Your defense\nBlocks incoming damage","Защита\nБлоки�
 TOOLTIP_ENEMY_ATTACK,"Enemies in this wave attack you,\ndestroying themselves in the process","Противники в этой волне атакуют,\nпринося себя в жертву"
 TOOLTIP_ENEMY_MOVE,"Enemies is this wave move towards you","Противники в этой волне двигаются к тебе"
 TOOLTIP_OVERLOAD,"Your OVERLOAD meter\nUsing powers fills it\nWhen full, your abilities unlock hidden potential,\nbut any undefended damage kills you\nMaximum depends on your health","Счётчик ПЕРЕГРУЗКИ\nИспользование умений заполняет его\nКогда счётчик полон, твои умения становятся сильнее,\nно любой незаблокированный урон убивает тебя"
+RETURN_POWERS_UNAVAILABLE_HINT,Cannot return Powers when you have just 1 hp,Нельзя вернуть умения пока 1 тебя только 1 здоровье
 ENEMY_BASIC,Fighter,Боец
 ENEMY_ARMORED,Tank,Танк
 ENEMY_THIEF,Thief,Вор
 ENEMY_BOSS,Boss,Босс
-POWER_DMG_FIRST_ROW,Name?,Название?
-POWER_DEFEND,Name?,Название?
-POWER_DMG_DISTANCE,Name?,Название?
-POWER_DMG_NEIGHBORS,Name?,Название?
-POWER_DMG_MULTIUSE,Name?,Название?
-POWER_DMG_WAVE,Name?,Название?
-POWER_MIND_CONTROL,Name?,Название?
-POWER_PULL_DEFEND,Name?,Название?
-POWER_DESCRIPTION_DMG_FIRST_ROW,"4 dmg to any enemy in front wave",
-POWER_DESCRIPTION_DEFEND,"1 damage to target in first wave; 2 defend",
-POWER_DESCRIPTION_DMG_DISTANCE,"1-4 dmg to 1 enemy, farther enemies take more dmg",
-POWER_DESCRIPTION_DMG_NEIGHBORS,"1 dmg to a target and its neighbors",
-POWER_DESCRIPTION_DMG_MULTIUSE,"1 dmg to target",
-POWER_DESCRIPTION_DMG_WAVE,"2 dmg to target, 1 dmg to neighbors in same wave",
-POWER_DESCRIPTION_MIND_CONTROL,"Target enemy attacks an enemy behind it.\n(Cannot target Thiefs)",
-POWER_DESCRIPTION_PULL_DEFEND,"Pull target one wave closer; Defend 1 for each enemy in 1st wave\n(Target cannot be in 1st wave, cannot have any other enemies in front of it)",
-POWER_DESCRIPTION_OVERLOAD_DMG_FIRST_ROW,"4 dmg to any enemy in front wave and 2 dmg to enemy right behind it",
-POWER_DESCRIPTION_OVERLOAD_DEFEND,"1 damage to target in first wave; 3 defend",
-POWER_DESCRIPTION_OVERLOAD_DMG_DISTANCE,"1-4 dmg to 1 enemy, farther enemies take more dmg; defend based on damage dealt",
-POWER_DESCRIPTION_OVERLOAD_DMG_NEIGHBORS,"1 dmg to all enemies in target square",
-POWER_DESCRIPTION_OVERLOAD_DMG_MULTIUSE,"1 dmg to target; 1 dmg to another random enemy",
-POWER_DESCRIPTION_OVERLOAD_DMG_WAVE,"2 dmg to target, 1 dmg to other enemies in same wave",
-POWER_DESCRIPTION_OVERLOAD_MIND_CONTROL,"Target enemy attacks an enemy behind it, dealing double damage.
-(Cannot target Thiefs)",
-POWER_DESCRIPTION_OVERLOAD_PULL_DEFEND,"Pull target one wave closer; Defend 2 for each enemy in 1st wave\n(Target cannot be in 1st wave, cannot have any other enemies in front of it)",
+POWER_DMG_FIRST_ROW,Retribution,Кара
+POWER_DEFEND,Barrier,Барьер
+POWER_DMG_DISTANCE,Surprise Attack,Внезапный Удар
+POWER_DMG_NEIGHBORS,Blast,Взрыв
+POWER_DMG_MULTIUSE,Quick Attack,Быстрый Удар
+POWER_DMG_WAVE,Shock Wave,Ударная Волна
+POWER_MIND_CONTROL,Takeover,Захват
+POWER_PULL_DEFEND,Attraction Beam,Притягивающий Луч
+POWER_DESCRIPTION_DMG_FIRST_ROW,"4 dmg to any enemy in first wave","4 урона противнику в первой волне"
+POWER_DESCRIPTION_DEFEND,"1 damage to target in first wave; 2 defend","1 урона противнику в первой волне; 2 защиты"
+POWER_DESCRIPTION_DMG_DISTANCE,"1-4 dmg to 1 enemy, farther enemies take more dmg","1-4 урона противнику, чем дальше цель, тем больше урона"
+POWER_DESCRIPTION_DMG_NEIGHBORS,"1 dmg to a target and its neighbors","1 урона цели и её соседям"
+POWER_DESCRIPTION_DMG_MULTIUSE,"1 dmg to target","1 урона цели"
+POWER_DESCRIPTION_DMG_WAVE,"2 dmg to target, 1 dmg to neighbors in same wave","2 урона цели, 1 урона соседям в этой волне"
+POWER_DESCRIPTION_MIND_CONTROL,"Target enemy attacks an enemy behind it\n(Cannot target Thiefs)","Цель атакует соседа сзади\n(Нельзя выбирать целью Вора)"
+POWER_DESCRIPTION_PULL_DEFEND,"Pull target one wave closer; Defend 1 for each enemy in first wave\n(Target cannot be in first wave, cannot have any other enemies in front of it)","Притянуть цель на 1 волну ближе; 1 защиты за каждого противника в первой волне\n(Нельщя выбрать цель в первой волне, перед целью не должно быть противников)"
+POWER_DESCRIPTION_OVERLOAD_DMG_FIRST_ROW,"4 dmg to any enemy in first wave and 2 dmg to enemy right behind it","4 урона противнику в первой волне и 2 урона противнику позади цели"
+POWER_DESCRIPTION_OVERLOAD_DEFEND,"1 damage to target in first wave; 3 defend","1 урона противнику в первой волне; 3 защиты"
+POWER_DESCRIPTION_OVERLOAD_DMG_DISTANCE,"1-4 dmg to 1 enemy, farther enemies take more dmg; defend based on damage dealt","1-4 урона противнику, чем дальше цель, тем больше урона; защита в зависимости от нанесённого урона"
+POWER_DESCRIPTION_OVERLOAD_DMG_NEIGHBORS,"1 dmg to all enemies in target square","1 урона всем противникам в квадратной области"
+POWER_DESCRIPTION_OVERLOAD_DMG_MULTIUSE,"1 dmg to target; 1 dmg to another random enemy","1 урона цели; 1 урона другому случайному противнику"
+POWER_DESCRIPTION_OVERLOAD_DMG_WAVE,"2 dmg to target, 1 dmg to other enemies in same wave","2 урона цели; 1 урона остальным противникам в этой волне"
+POWER_DESCRIPTION_OVERLOAD_MIND_CONTROL,"Target enemy attacks an enemy behind it, dealing double damage\n(Cannot target Thiefs)","Цель атакует соседа сзади и наносит удвоенный урон\n(Нельзя выбирать целью Вора)"
+POWER_DESCRIPTION_OVERLOAD_PULL_DEFEND,"Pull target one wave closer; Defend 2 for each enemy in first wave\n(Target cannot be in first wave, cannot have any other enemies in front of it)","Притянуть цель на 1 волну ближе; 2 защиты за каждого противника в первой волне\n(Нельщя выбрать цель в первой волне, перед целью не должно быть противников)"
+CONFIRM_DIALOG,ARE YOU SURE?,ВЫ УВЕРЕНЫ?
+OK,OK,ДА
+CANCEL,CANCEL,ОТМЕНА
+QUIT_DIALOG_TEXT,Are you sure you want to quit? All progress will be lost,Точно выйти? Игра не сохранится
+NO_POWERS_DIALOG_TEXT,You have not activated any powers. Continue?,Не активировано ни одного умения. Продолжить?
+UNUSED_DIALOG_TEXT,You have some powers left to use. Continue?,Вы не использовали все свои умения. Продолжить?

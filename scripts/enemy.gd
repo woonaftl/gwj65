@@ -6,12 +6,24 @@ signal clicked(enemy: Enemy)
 signal attacked_player(damage: int, power_loss: int)
 
 
+var outline_material: Material = preload("res://shaders/outline_material.tres")
+
+
 @onready var hp_bar = %HitPointsBar
 @onready var hp_label = %HitPointsLabel
 @onready var description_label = %DescriptionLabel
 @onready var description_panel = %DescriptionPanel
 @onready var sprite = %Sprite2D
 @onready var coords: Vector2i
+
+
+@onready var is_target: bool = false:
+	set(new_value):
+		is_target = new_value
+		if is_target:
+			modulate = Color.RED
+		else:
+			modulate = Color.WHITE
 
 
 @onready var blueprint: EnemyBlueprint:
@@ -79,8 +91,23 @@ func attack() -> void:
 
 
 func _on_mouse_entered():
+	var selected_power = get_tree().get_first_node_in_group("selected_power")
+	if is_instance_valid(selected_power) and not selected_power.is_queued_for_deletion():
+		if Player.is_overloaded():
+			if selected_power.blueprint.effect_overload.is_target_valid(self):
+				sprite.material = outline_material
+				for enemy in selected_power.blueprint.effect_overload.get_damaged_targets(self):
+					enemy.is_target = true
+		else:
+			if selected_power.blueprint.effect.is_target_valid(self):
+				sprite.material = outline_material
+				for enemy in selected_power.blueprint.effect.get_damaged_targets(self):
+					enemy.is_target = true
 	description_panel.visible = true
 
 
 func _on_mouse_exited():
 	description_panel.visible = false
+	sprite.material = null
+	for enemy in EnemyHelper.get_all_enemies():
+		enemy.is_target = false

@@ -5,14 +5,18 @@ signal closed
 
 
 @onready var return_option = %ReturnOption
+@onready var discard_scroll_container = %DiscardScrollContainer
+@onready var cannot_return_label = %CannotReturnLabel
 
 
 func _on_about_to_popup():
-	return_option.visible = Player.hp > 1
+	discard_scroll_container.visible = Player.hp > 1
+	return_option.disabled = Player.hp == 1
+	cannot_return_label.visible = Player.hp == 1
 
 
-func _on_return_option_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+func _on_return_option_pressed() -> void:
+	if Player.hp > 1:
 		Player.hp -= 1
 		for power: Node in get_tree().get_nodes_in_group("unavailable_power"):
 			power.remove_from_group("unavailable_power")
