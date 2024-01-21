@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="1_6mbd6"]
 [ext_resource type="Resource" uid="uid://bcskexlpkqwq6" path="res://data/effects/mind_control.tres" id="1_uk2md"]
 [ext_resource type="Resource" uid="uid://bmid8htgtqcbs" path="res://data/effects/mind_control_double.tres" id="2_qdppu"]
-[ext_resource type="Texture2D" uid="uid://dpiwcdk3u6562" path="res://assets/graphics/powers/mind_control.png" id="4_5g1tg"]
+[ext_resource type="Texture2D" uid="uid://hgtt2htoyife" path="res://assets/graphics/powers/sun.png" id="4_q48gg"]
 
 [resource]
 script = ExtResource("1_6mbd6")
@@ -13,5 +13,5 @@ description = "POWER_DESCRIPTION_MIND_CONTROL"
 overload_description = "POWER_DESCRIPTION_OVERLOAD_MIND_CONTROL"
 effect = ExtResource("1_uk2md")
 effect_overload = ExtResource("2_qdppu")
-texture = ExtResource("4_5g1tg")
+texture = ExtResource("4_q48gg")
 name = "POWER_MIND_CONTROL"

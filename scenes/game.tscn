@@ -182,9 +182,9 @@ theme_override_constants/separation = 16
 layout_mode = 2
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 248)
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 mouse_filter = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/HBoxContainer/VBoxContainer"]
@@ -246,7 +246,6 @@ theme_override_font_sizes/font_size = 22
 text = "Z"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1

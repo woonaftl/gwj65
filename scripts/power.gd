@@ -1,4 +1,4 @@
-extends Control
+extends Panel
 class_name Power
 
 
@@ -8,7 +8,6 @@ signal clicked(power: Power)
 @onready var energy_label = %EnergyLabel
 @onready var uses_label = %UsesLabel
 @onready var name_label = %NameLabel
-@onready var description_label = %DescriptionLabel
 @onready var sprite = %Sprite2D
 
 
@@ -17,6 +16,9 @@ signal clicked(power: Power)
 		blueprint = new_value
 		uses_left = blueprint.uses_max
 		sprite.texture = blueprint.texture
+		var sprite_scale = 220 / blueprint.texture.get_size().x
+		sprite.scale = Vector2(sprite_scale, sprite_scale)
+		custom_minimum_size.y = blueprint.texture.get_size().y * sprite_scale + 20
 
 
 @onready var uses_left: int:
@@ -32,20 +34,13 @@ func _process(_delta: float) -> void:
 		tr("OVERLOAD_IN_POWER_TOOLTIP"),
 		tr(blueprint.overload_description)
 	]
-	description_label.visible = is_in_group("selected_power") or is_in_group("new_power")
 	energy_label.text = "%s: %s" % [tr("ENERGY"), str(blueprint.energy)]
 	uses_label.text = "%s: %s / %s" % [tr("USES"), uses_left, blueprint.uses_max]
 	name_label.text = tr(blueprint.name)
-	if Player.is_overloaded():
-		description_label.text = blueprint.overload_description
-		description_label.add_theme_color_override("default_color", Color.YELLOW)
-	else:
-		description_label.text = blueprint.description
-		description_label.remove_theme_color_override("default_color")
 	if is_in_group("selected_power"):
-		modulate = Color.RED
+		modulate = Color.LIGHT_CYAN
 	elif uses_left == 0 or is_in_group("available_power") and get_tree().current_scene.state != Game.State.CHOOSE_POWERS:
-		modulate = Color.DARK_GRAY
+		modulate = Color.LIGHT_GRAY
 	else:
 		modulate = Color.WHITE
 	if is_in_group("new_power") or is_in_group("unavailable_power"):

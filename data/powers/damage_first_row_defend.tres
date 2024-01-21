@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="1_vvbx4"]
 [ext_resource type="Resource" uid="uid://dpvaoqu0o1rr2" path="res://data/effects/first_wave_single_damage_1_defend_2.tres" id="1_yhbtq"]
 [ext_resource type="Resource" uid="uid://84pddpyeg6l7" path="res://data/effects/first_wave_single_damage_1_defend_3.tres" id="2_vvqxa"]
-[ext_resource type="Texture2D" uid="uid://h7scph1jnx4d" path="res://assets/graphics/powers/dmg_and_defend.png" id="4_bcvk1"]
+[ext_resource type="Texture2D" uid="uid://cf4dip0rnmtki" path="res://assets/graphics/powers/defend.png" id="4_8fjvp"]
 
 [resource]
 script = ExtResource("1_vvbx4")
@@ -13,5 +13,5 @@ description = "POWER_DESCRIPTION_DEFEND"
 overload_description = "POWER_DESCRIPTION_OVERLOAD_DEFEND"
 effect = ExtResource("1_yhbtq")
 effect_overload = ExtResource("2_vvqxa")
-texture = ExtResource("4_bcvk1")
+texture = ExtResource("4_8fjvp")
 name = "POWER_DEFEND"

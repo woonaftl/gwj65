@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://cwf4wdsbib8bh" path="res://data/effects/single_damage_distance.tres" id="1_e6d11"]
 [ext_resource type="Resource" uid="uid://h4rer1rp2iag" path="res://data/effects/single_damage_distance_defend.tres" id="2_wedrp"]
 [ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="3_6x6ds"]
-[ext_resource type="Texture2D" uid="uid://bttb0dl7mwhse" path="res://assets/graphics/powers/dmg_higher_farther.png" id="4_igreu"]
+[ext_resource type="Texture2D" uid="uid://do72oyfo7dgc0" path="res://assets/graphics/powers/robot.png" id="4_y6wfd"]
 
 [resource]
 script = ExtResource("3_6x6ds")
@@ -13,5 +13,5 @@ description = "POWER_DESCRIPTION_DMG_DISTANCE"
 overload_description = "POWER_DESCRIPTION_OVERLOAD_DMG_DISTANCE"
 effect = ExtResource("1_e6d11")
 effect_overload = ExtResource("2_wedrp")
-texture = ExtResource("4_igreu")
+texture = ExtResource("4_y6wfd")
 name = "POWER_DMG_DISTANCE"

@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://cmij6pgbksyr5" path="res://data/effects/pull_and_defend_1.tres" id="1_c54e6"]
 [ext_resource type="Resource" uid="uid://c535kveajh372" path="res://data/effects/pull_and_defend_2.tres" id="2_f162g"]
 [ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="3_x1fna"]
-[ext_resource type="Texture2D" uid="uid://bg5q0sv6p4mvn" path="res://assets/graphics/powers/pull_and_defend.png" id="4_4iuve"]
+[ext_resource type="Texture2D" uid="uid://d06a0r4npccti" path="res://assets/graphics/powers/pull.png" id="4_7u0k6"]
 
 [resource]
 script = ExtResource("3_x1fna")
@@ -13,5 +13,5 @@ description = "POWER_DESCRIPTION_PULL_DEFEND"
 overload_description = "POWER_DESCRIPTION_OVERLOAD_PULL_DEFEND"
 effect = ExtResource("1_c54e6")
 effect_overload = ExtResource("2_f162g")
-texture = ExtResource("4_4iuve")
+texture = ExtResource("4_7u0k6")
 name = "POWER_PULL_DEFEND"

@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://u7cq7napaer8" path="res://data/effects/neighbors_damage_1.tres" id="1_j2hxr"]
 [ext_resource type="Resource" uid="uid://8374ckimlp5y" path="res://data/effects/square_damage_1.tres" id="2_lfl2n"]
 [ext_resource type="Script" path="res://data/powers/power_blueprint.gd" id="3_p6rr7"]
-[ext_resource type="Texture2D" uid="uid://dhlt7p150wey" path="res://assets/graphics/powers/dmg_neighbors.png" id="4_aruhv"]
+[ext_resource type="Texture2D" uid="uid://de6gyshtu5hu8" path="res://assets/graphics/powers/explosion.png" id="4_gxiyh"]
 
 [resource]
 script = ExtResource("3_p6rr7")
@@ -13,5 +13,5 @@ description = "POWER_DESCRIPTION_DMG_NEIGHBORS"
 overload_description = "POWER_DESCRIPTION_OVERLOAD_DMG_NEIGHBORS"
 effect = ExtResource("1_j2hxr")
 effect_overload = ExtResource("2_lfl2n")
-texture = ExtResource("4_aruhv")
+texture = ExtResource("4_gxiyh")
 name = "POWER_DMG_NEIGHBORS"

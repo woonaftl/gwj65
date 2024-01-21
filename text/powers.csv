@@ -1,12 +1,12 @@
 keys,en,ru
-POWER_DMG_FIRST_ROW,Retribution,Кара
-POWER_DEFEND,Barrier,Барьер
-POWER_DMG_DISTANCE,Surprise Attack,Внезапный Удар
-POWER_DMG_NEIGHBORS,Blast,Взрыв
-POWER_DMG_MULTIUSE,Quick Attack,Быстрый Удар
-POWER_DMG_WAVE,Shock Wave,Ударная Волна
-POWER_MIND_CONTROL,Takeover,Захват
-POWER_PULL_DEFEND,Attraction Beam,Притягивающий Луч
+POWER_DMG_FIRST_ROW,[center]Retribution[/center],[center]Кара[/center]
+POWER_DEFEND,[center]Barrier[/center],[center]Барьер[/center]
+POWER_DMG_DISTANCE,[center]Surprise Attack[/center],[center]Внезапный Удар[/center]
+POWER_DMG_NEIGHBORS,[center]Blast[/center],[center]Взрыв[/center]
+POWER_DMG_MULTIUSE,[center]Quick Attack[/center],[center]Быстрый Удар[/center]
+POWER_DMG_WAVE,[center]Shock Wave[/center],[center]Ударная Волна[/center]
+POWER_MIND_CONTROL,[center]Takeover[/center],[center]Захват[/center]
+POWER_PULL_DEFEND,[center]Attraction Beam[/center],[center]Притягивающий Луч[/center]
 POWER_DESCRIPTION_DMG_FIRST_ROW,"4 dmg to any enemy in first wave","4 урона противнику в первой волне"
 POWER_DESCRIPTION_DEFEND,"1 damage to target in first wave; 2 defend","1 урона противнику в первой волне; 2 защиты"
 POWER_DESCRIPTION_DMG_DISTANCE,"1-4 dmg to 1 enemy, farther enemies take more dmg","1-4 урона противнику, чем дальше цель, тем больше урона"
