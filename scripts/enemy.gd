@@ -12,6 +12,7 @@ var outline_material: Material = preload("res://shaders/outline_material.tres")
 @onready var hp_bar = %HitPointsBar
 @onready var hp_label = %HitPointsLabel
 @onready var sprite = %Sprite2D
+@onready var sprite_container = %SpriteContainer
 @onready var coords: Vector2i
 
 
@@ -30,7 +31,6 @@ var outline_material: Material = preload("res://shaders/outline_material.tres")
 		hp_bar.max_value = blueprint.hp_max
 		hp_current = blueprint.hp_max
 		sprite.texture = blueprint.texture
-		sprite.scale = Vector2(96, 96) / blueprint.texture.get_size()
 
 
 @onready var hp_current: int = 1:
@@ -57,6 +57,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	var m = min(EnemyHelper.enemy_grid_cell_size.x, EnemyHelper.enemy_grid_cell_size.y)
+	sprite_container.custom_minimum_size = EnemyHelper.enemy_grid_cell_size
+	custom_minimum_size = EnemyHelper.enemy_grid_cell_size
+	sprite.scale = (Vector2(m, m) - Vector2(32, 32)) / blueprint.texture.get_size()
 	# change position
 	var target_position = EnemyHelper.get_grid_target_position(coords)
 	var distance = global_position - target_position

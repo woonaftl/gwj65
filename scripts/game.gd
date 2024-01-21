@@ -40,6 +40,10 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 @onready var tutorial_panel = %TutorialPanel
 @onready var return_option = %ReturnOption
 @onready var reward_button_container = %RewardButtonContainer
+@onready var wave_0 = %Wave0
+@onready var wave_1 = %Wave1
+@onready var wave_2 = %Wave2
+@onready var wave_3 = %Wave3
 
 
 @onready var wave: int = 0:
@@ -106,6 +110,9 @@ func intro() -> void:
 
 func _process(_delta: float) -> void:
 	EnemyHelper.enemy_grid_origin = enemy_grid_origin.global_position
+	EnemyHelper.enemy_grid_cell_size = enemy_grid_origin.size / 4
+	var m = min(%PlayerSpriteContainer.size.x, %PlayerSpriteContainer.size.y)
+	player_sprite.scale = Vector2(m, m) / player_sprite.texture.get_size()
 	defend_label.text = str(Player.defend)
 	player_hp_label.text = str(Player.hp)
 	overload_bar.max_value = Player.hp

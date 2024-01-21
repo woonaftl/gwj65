@@ -12,28 +12,29 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_tbt5e")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="SpriteContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
 
-[node name="Control" type="Control" parent="CenterContainer"]
+[node name="Control" type="Control" parent="SpriteContainer"]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="SpriteContainer/Control"]
 unique_name_in_owner = true
 
 [node name="HitPointsBar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 24)
+custom_minimum_size = Vector2(96, 24)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -48.0
-offset_right = 48.0
+offset_left = -10.0
+offset_right = 10.0
 offset_bottom = 24.0
 grow_horizontal = 2
 nine_patch_stretch = true

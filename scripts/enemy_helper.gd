@@ -1,14 +1,12 @@
 extends Node
 
 
-const ENEMY_GRID_CELL_SIZE: Vector2 = Vector2(128, 128)
-
-
 var enemy_grid_origin: Vector2
+var enemy_grid_cell_size: Vector2
 
 
 func get_grid_target_position(coords: Vector2i) -> Vector2:
-	return enemy_grid_origin + Vector2(coords) * ENEMY_GRID_CELL_SIZE
+	return enemy_grid_origin + Vector2(coords) * enemy_grid_cell_size
 
 
 func get_all_enemies() -> Array:
