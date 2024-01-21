@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmximkgo06n23"]
+[gd_scene load_steps=13 format=3 uid="uid://cmximkgo06n23"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ul8io"]
-[ext_resource type="Texture2D" uid="uid://dxuq4hlol28mp" path="res://assets/graphics/backgrounds/game_background.png" id="2_4fc3k"]
+[ext_resource type="Texture2D" uid="uid://bt0tjfwht5wub" path="res://assets/graphics/backgrounds/background_dark.png" id="2_7u1c3"]
 [ext_resource type="Script" path="res://scenes/background.gd" id="3_ab1ur"]
 [ext_resource type="Texture2D" uid="uid://50f3k4nr5t14" path="res://assets/graphics/ui/overload_bar_empty.png" id="3_hgnun"]
 [ext_resource type="Texture2D" uid="uid://dd42wde33shqt" path="res://assets/graphics/ui/overload_bar_full.png" id="4_4ul72"]
@@ -11,11 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://nnc36hwt2wtw" path="res://assets/graphics/icons/boom.png" id="8_b7hsx"]
 [ext_resource type="Texture2D" uid="uid://bl5ua8y5lp3hj" path="res://assets/graphics/icons/arrow.png" id="9_dk654"]
 [ext_resource type="Script" path="res://scripts/reward_window.gd" id="10_u0ccl"]
-[ext_resource type="Texture2D" uid="uid://8h6q42s6yfd2" path="res://assets/graphics/backgrounds/reward_background.png" id="11_e3psl"]
 [ext_resource type="PackedScene" uid="uid://d00tsf6iiogat" path="res://scenes/tutorial_panel.tscn" id="13_8dafy"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_241hd"]
-texture = ExtResource("11_e3psl")
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -29,8 +25,7 @@ script = ExtResource("1_ul8io")
 
 [node name="Background" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-modulate = Color(0.643137, 0.643137, 0.643137, 1)
-texture = ExtResource("2_4fc3k")
+texture = ExtResource("2_7u1c3")
 centered = false
 script = ExtResource("3_ab1ur")
 
@@ -358,7 +353,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_241hd")
 script = ExtResource("10_u0ccl")
 
 [node name="MarginContainer" type="MarginContainer" parent="RewardWindow"]

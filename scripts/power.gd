@@ -38,9 +38,9 @@ func _process(_delta: float) -> void:
 	uses_label.text = "%s: %s / %s" % [tr("USES"), uses_left, blueprint.uses_max]
 	name_label.text = tr(blueprint.name)
 	if is_in_group("selected_power"):
-		modulate = Color.LIGHT_CYAN
+		modulate = Color.CYAN
 	elif uses_left == 0 or is_in_group("available_power") and get_tree().current_scene.state != Game.State.CHOOSE_POWERS:
-		modulate = Color.LIGHT_GRAY
+		modulate = Color.WEB_GRAY
 	else:
 		modulate = Color.WHITE
 	if is_in_group("new_power") or is_in_group("unavailable_power"):

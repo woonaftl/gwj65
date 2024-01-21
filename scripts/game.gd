@@ -102,7 +102,7 @@ func intro() -> void:
 	if UserSettings.need_tutorial_1:
 		tutorial_panel.text = tr("TUTORIAL_1")
 		tutorial_panel.visible = true
-		tutorial_panel.global_position = Vector2(64, 96)
+		tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
 		await get_tree().create_timer(0.1).timeout
 		await tutorial_panel.closed
 		UserSettings.need_tutorial_1 = false
@@ -191,6 +191,7 @@ func enemy_turn() -> void:
 
 
 func _on_hide_button_pressed():
+	AudioBus.play("Click")
 	reward_window.visible = false
 
 
@@ -258,6 +259,7 @@ func check_win() -> void:
 	await get_tree().create_timer(0.25).timeout
 	if len(EnemyHelper.get_all_enemies()) == 0 and wave >= WAVE_COUNT:
 		state = State.ENDED
+		AudioBus.play("Defeat")
 		await show_popup(tr("VICTORY"), 3.5)
 		UserSettings.is_victory = true
 		get_tree().change_scene_to_file("res://scenes/credits.tscn")
@@ -266,6 +268,7 @@ func check_win() -> void:
 func check_game_over() -> void:
 	if Player.hp == 0:
 		state = State.ENDED
+		AudioBus.play("Victory")
 		await show_popup(tr("DEFEAT"), 3.5)
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
@@ -280,21 +283,23 @@ func show_popup(message: String, popup_time: float) -> void:
 
 func _on_power_clicked(power: Power) -> void:
 	if state == State.CHOOSE_POWERS and power.is_in_group("available_power"):
+		AudioBus.play("PowerSelected")
 		power.remove_from_group("available_power")
 		power.add_to_group("active_power")
 		if UserSettings.need_tutorial_2:
 			tutorial_panel.text = tr("TUTORIAL_2")
 			tutorial_panel.visible = true
-			tutorial_panel.global_position = Vector2(64, 96)
+			tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
 			await tutorial_panel.closed
 			UserSettings.need_tutorial_2 = false
 		if UserSettings.need_tutorial_3:
 			tutorial_panel.text = tr("TUTORIAL_3")
 			tutorial_panel.visible = true
-			tutorial_panel.global_position = Vector2(64, 480)
+			tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
 			await tutorial_panel.closed
 			UserSettings.need_tutorial_3 = false
 	elif state == State.CHOOSE_POWERS and power.is_in_group("active_power"):
+		AudioBus.play("PowerDeselected")
 		power.remove_from_group("active_power")
 		power.add_to_group("available_power")
 	elif state == State.CHOOSE_TARGETS and power.get_parent() == active_container:
@@ -359,13 +364,16 @@ func _on_end_turn_button_pressed() -> void:
 	deselect_all()
 	match state:
 		State.CHOOSE_NEW_CARD:
+			AudioBus.play("Click")
 			reward_window.popup()
 		State.CHOOSE_POWERS:
+			AudioBus.play("Click")
 			if len(get_tree().get_nodes_in_group("available_power")) > 0 and len(get_tree().get_nodes_in_group("active_power")) == 0:
 				no_powers_dialog.popup_centered()
 			else:
 				state = State.CHOOSE_TARGETS
 		State.CHOOSE_TARGETS:
+			AudioBus.play("Click")
 			if get_tree().get_nodes_in_group("active_power").any(
 				func(power):
 					return power.uses_left > 0

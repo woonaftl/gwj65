@@ -37,6 +37,7 @@ var outline_material: Material = preload("res://shaders/outline_material.tres")
 	set(new_value):
 		if new_value < hp_current:
 			modulate = Color.RED
+			AudioBus.play("EnemyHurt")
 			Global.show_floating_text(
 				global_position + Vector2(48., -32.),
 				str(new_value - hp_current),
@@ -58,13 +59,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var m = min(EnemyHelper.enemy_grid_cell_size.x, EnemyHelper.enemy_grid_cell_size.y)
-	sprite_container.custom_minimum_size = EnemyHelper.enemy_grid_cell_size
 	custom_minimum_size = EnemyHelper.enemy_grid_cell_size
+	size = EnemyHelper.enemy_grid_cell_size
 	sprite.scale = (Vector2(m, m) - Vector2(32, 32)) / blueprint.texture.get_size()
 	# change position
 	var target_position = EnemyHelper.get_grid_target_position(coords)
 	var distance = global_position - target_position
-	if distance.length_squared() <= 128**2:
+	if distance.length_squared() <= EnemyHelper.enemy_grid_cell_size.length_squared() * 1.5:
 		global_position = global_position.move_toward(
 			target_position,
 			delta * UserSettings.get_enemy_movement_speed()

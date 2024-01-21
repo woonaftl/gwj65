@@ -10,6 +10,7 @@ signal clicked(power: Power)
 
 
 func _on_pressed():
+	AudioBus.play("NewPower")
 	clicked.emit(power)
 
 

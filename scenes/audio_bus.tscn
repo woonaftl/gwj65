@@ -1,10 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://kbplbqjvextq"]
+[gd_scene load_steps=13 format=3 uid="uid://kbplbqjvextq"]
 
 [ext_resource type="Script" path="res://scripts/audio_bus.gd" id="1_dqfy3"]
-[ext_resource type="AudioStream" uid="uid://cwjgmk24lcfk2" path="res://assets/audio/click.wav" id="2_vrnwo"]
+[ext_resource type="AudioStream" uid="uid://dn0kolsv11jv4" path="res://assets/audio/click.wav" id="2_vrnwo"]
+[ext_resource type="AudioStream" uid="uid://ducuhpu73kuwa" path="res://assets/audio/defeat.wav" id="3_uwvj2"]
+[ext_resource type="AudioStream" uid="uid://dctcal87inm6v" path="res://assets/audio/defend_down.wav" id="4_a3tr4"]
+[ext_resource type="AudioStream" uid="uid://hyaluccjjpla" path="res://assets/audio/defend_up.wav" id="5_0ofrn"]
+[ext_resource type="AudioStream" uid="uid://cyv5i80hqdkjc" path="res://assets/audio/enemy_hurt.wav" id="6_mg0f6"]
+[ext_resource type="AudioStream" uid="uid://bbntp7yssrj6m" path="res://assets/audio/new_power.wav" id="7_nck68"]
+[ext_resource type="AudioStream" uid="uid://dcq2oaw34ec6j" path="res://assets/audio/player_hurt.wav" id="8_klscv"]
+[ext_resource type="AudioStream" uid="uid://crrl6om8vdudc" path="res://assets/audio/power_deselected.wav" id="9_sk8ja"]
+[ext_resource type="AudioStream" uid="uid://ckky8mmninejv" path="res://assets/audio/power_selected.wav" id="10_3bnn1"]
+[ext_resource type="AudioStream" uid="uid://jdx5lrcpwwk" path="res://assets/audio/victory.wav" id="11_8kk8f"]
+[ext_resource type="AudioStream" uid="uid://h2xwdqo66rfj" path="res://assets/audio/background/ambience.wav" id="12_3bayc"]
 
 [node name="AudioBus" type="Node"]
 script = ExtResource("1_dqfy3")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_vrnwo")
+
+[node name="Defeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uwvj2")
+
+[node name="DefendDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_a3tr4")
+
+[node name="DefendUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0ofrn")
+
+[node name="EnemyHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mg0f6")
+
+[node name="NewPower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nck68")
+
+[node name="PlayerHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_klscv")
+
+[node name="PowerDeselected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_sk8ja")
+
+[node name="PowerSelected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_3bnn1")
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_8kk8f")
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_3bayc")
+autoplay = true

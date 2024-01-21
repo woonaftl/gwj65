@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cskipppyxass2"]
+[gd_scene load_steps=3 format=3 uid="uid://cskipppyxass2"]
 
 [ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_x5tdo"]
-[ext_resource type="Texture2D" uid="uid://bqaro8581rrs6" path="res://assets/graphics/backgrounds/settings_background.png" id="2_78cad"]
 [ext_resource type="Script" path="res://scripts/volume_slider.gd" id="3_jrjnb"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4c0l4"]
-texture = ExtResource("2_78cad")
 
 [node name="Settings" type="Window"]
 size = Vector2i(800, 400)
@@ -20,7 +16,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_4c0l4")
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
 layout_mode = 2

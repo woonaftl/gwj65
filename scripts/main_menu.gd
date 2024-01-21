@@ -47,10 +47,12 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_english_button_pressed():
+	AudioBus.play("Click")
 	UserSettings.language_chosen = true
 	UserSettings.set_locale("en")
 
 
 func _on_russian_button_pressed():
+	AudioBus.play("Click")
 	UserSettings.language_chosen = true
 	UserSettings.set_locale("ru")

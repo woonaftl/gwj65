@@ -3,11 +3,17 @@ extends Node
 
 var defend: int:
 	set(new_value):
+		if defend < new_value:
+			AudioBus.play("DefendUp")
+		elif defend > new_value:
+			AudioBus.play("DefendDown")
 		defend = clamp(new_value, 0, 9999)
 
 
 var hp: int:
 	set(new_value):
+		if hp > new_value:
+			AudioBus.play("PlayerHurt")
 		hp = clamp(new_value, 0, 9999)
 
 
