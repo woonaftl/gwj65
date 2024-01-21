@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Gwj 65"
+config/name="Fort Magica"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://assets/graphics/icon.svg"
+config/icon="res://assets/graphics/characters/player.png"
 
 [autoload]
 

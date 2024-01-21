@@ -2,7 +2,7 @@ extends Control
 class_name Game
 
 
-const WAVE_COUNT = 19
+const WAVE_COUNT = 18
 const ALL_POWER_BLUEPRINTS = [
 	preload("res://data/powers/damage_first_row.tres"),
 	preload("res://data/powers/damage_first_row_defend.tres"),
@@ -23,9 +23,6 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 @onready var available_container = %AvailableContainer
 @onready var discard_container = %DiscardContainer
 @onready var reward_window = %RewardWindow
-@onready var new_power_option_1 = %NewPowerOption
-@onready var new_power_option_2 = %NewPowerOption2
-@onready var new_power_option_3 = %NewPowerOption3
 @onready var overload_bar = %OverloadBar
 @onready var overload_bar_label = %OverloadBarLabel
 @onready var player_hp_label = %PlayerHpLabel
@@ -41,6 +38,8 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 @onready var no_powers_dialog = %NoPowersDialog
 @onready var unused_dialog = %UnusedDialog
 @onready var tutorial_panel = %TutorialPanel
+@onready var return_option = %ReturnOption
+@onready var reward_button_container = %RewardButtonContainer
 
 
 @onready var wave: int = 0:
@@ -67,6 +66,8 @@ enum State {CHOOSE_POWERS, CHOOSE_TARGETS, CHOOSE_NEW_CARD, ENEMY_TURN, ENDED}
 					UserSettings.need_tutorial_4 = false
 			State.ENEMY_TURN:
 				end_turn_button.text = tr("ENEMY TURN")
+				for new_power_option in get_tree().get_nodes_in_group("new_power_option"):
+					new_power_option.queue_free()
 				enemy_turn()
 			State.CHOOSE_NEW_CARD:
 				end_turn_button.text = tr("CHOOSE REWARD")
@@ -140,14 +141,6 @@ func add_starting_power(blueprint: PowerBlueprint) -> void:
 	power.blueprint = blueprint
 
 
-func add_new_power(new_power_option: NewPowerOption, blueprint: PowerBlueprint) -> void:
-	var power: Power = preload("res://scenes/power.tscn").instantiate()
-	new_power_option.power = power
-	power.add_to_group("new_power")
-	power.clicked.connect(_on_power_clicked)
-	power.blueprint = blueprint
-
-
 func deselect_all() -> void:
 	for power in get_tree().get_nodes_in_group("selected_power"):
 		power.remove_from_group("selected_power")
@@ -170,7 +163,7 @@ func enemy_turn() -> void:
 			await get_tree().create_timer(UserSettings.get_time_between_waves()).timeout
 		spawn_wave(3)
 		await get_tree().create_timer(UserSettings.get_time_between_waves()).timeout
-		if not await check_win():
+		if state == State.ENEMY_TURN:
 			Player.defend = 0
 			discard_used_powers()
 			prepare_power_options()
@@ -180,14 +173,14 @@ func enemy_turn() -> void:
 				tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
 				await tutorial_panel.closed
 				UserSettings.need_tutorial_5 = false
-			reward_window.popup()
-			state = State.CHOOSE_NEW_CARD
 			if UserSettings.need_tutorial_6:
 				tutorial_panel.text = tr("TUTORIAL_6")
 				tutorial_panel.visible = true
 				tutorial_panel.global_position = player_sprite.global_position + Vector2(-128, -288)
 				await tutorial_panel.closed
 				UserSettings.need_tutorial_6 = false
+			reward_window.popup()
+			state = State.CHOOSE_NEW_CARD
 
 
 func _on_hide_button_pressed():
@@ -201,18 +194,14 @@ func _on_reward_window_closed():
 
 func prepare_power_options() -> void:
 	var power_pool: Array = ALL_POWER_BLUEPRINTS.duplicate()
-	if len(power_pool) > 0:
-		var option = power_pool.pick_random()
-		add_new_power(new_power_option_1, option)
-		power_pool.erase(option)
-	if len(power_pool) > 0:
-		var option = power_pool.pick_random()
-		add_new_power(new_power_option_2, option)
-		power_pool.erase(option)
-	if len(power_pool) > 0:
-		var option = power_pool.pick_random()
-		add_new_power(new_power_option_3, option)
-		power_pool.erase(option)
+	for index in range(3):
+		if len(power_pool) > 0:
+			var new_power_option = preload("res://scenes/new_power_option.tscn").instantiate()
+			reward_button_container.add_child(new_power_option)
+			var blueprint = power_pool.pick_random()
+			new_power_option.new_power(blueprint)
+			new_power_option.clicked.connect(reward_window._on_new_power_option_clicked)
+			power_pool.erase(blueprint)
 
 
 func discard_used_powers() -> void:
@@ -226,20 +215,20 @@ func spawn_wave(x: int) -> void:
 	if wave < WAVE_COUNT:
 		for y in range(4):
 			spawn_enemy(Vector2i(x, y), choose_next_enemy_blueprint())
-			enemy_points += wave + 3
+			enemy_points += wave + 2
 		wave += 1
 
 
 func choose_next_enemy_blueprint() -> EnemyBlueprint:
-	if enemy_points > 25:
-		enemy_points -= 25
+	if enemy_points > 40:
+		enemy_points -= 35
 		return preload("res://data/enemies/boss.tres")
 	if randi_range(0, 8) > 7 - enemy_points:
 		if randf() > 0.5:
-			enemy_points -= 7
+			enemy_points -= 8
 			return preload("res://data/enemies/basic.tres")
 		elif randf() > 0.25:
-			enemy_points -= 8
+			enemy_points -= 10
 			return preload("res://data/enemies/armored.tres")
 		else:
 			enemy_points -= 4
@@ -259,6 +248,7 @@ func spawn_enemy(coords: Vector2i, blueprint: EnemyBlueprint) -> void:
 
 
 func check_win() -> void:
+	await get_tree().create_timer(0.25).timeout
 	if len(EnemyHelper.get_all_enemies()) == 0 and wave >= WAVE_COUNT:
 		state = State.ENDED
 		await show_popup(tr("VICTORY"), 3.5)

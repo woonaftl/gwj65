@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmximkgo06n23"]
+[gd_scene load_steps=14 format=3 uid="uid://cmximkgo06n23"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ul8io"]
 [ext_resource type="Texture2D" uid="uid://ciq7hbwq2egfp" path="res://assets/graphics/backgrounds/game_background.png" id="2_4fc3k"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bl5ua8y5lp3hj" path="res://assets/graphics/icons/arrow.png" id="9_dk654"]
 [ext_resource type="Script" path="res://scripts/reward_window.gd" id="10_u0ccl"]
 [ext_resource type="Texture2D" uid="uid://8h6q42s6yfd2" path="res://assets/graphics/backgrounds/reward_background.png" id="11_e3psl"]
-[ext_resource type="PackedScene" uid="uid://bxodrqghppqsr" path="res://scenes/new_power_option.tscn" id="12_k1650"]
 [ext_resource type="PackedScene" uid="uid://d00tsf6iiogat" path="res://scenes/tutorial_panel.tscn" id="13_8dafy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_241hd"]
@@ -382,20 +381,21 @@ custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 text = "CHOOSE LATER"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="RewardButtonContainer" type="HBoxContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 16
 
-[node name="ReturnOption" type="Button" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+[node name="ReturnOption" type="Button" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(290, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -407,33 +407,33 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="RichTextLabel" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer"]
+[node name="Label" type="RichTextLabel" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 bbcode_enabled = true
 text = "RETURN_POWERS_REWARD"
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer/HBoxContainer/CenterContainer"]
+[node name="Control" type="Control" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer/HBoxContainer/CenterContainer"]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer/HBoxContainer/CenterContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer/HBoxContainer/CenterContainer/Control"]
 texture = ExtResource("6_508h4")
 
-[node name="Label" type="Label" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "- 1"
 
-[node name="CannotReturnLabel" type="RichTextLabel" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer"]
+[node name="CannotReturnLabel" type="RichTextLabel" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
@@ -441,7 +441,7 @@ bbcode_enabled = true
 text = "RETURN_POWERS_UNAVAILABLE_HINT"
 fit_content = true
 
-[node name="MarginContainer" type="MarginContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -449,7 +449,7 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="DiscardScrollContainer" type="ScrollContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer/MarginContainer"]
+[node name="DiscardScrollContainer" type="ScrollContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
@@ -457,27 +457,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="DiscardContainer" type="VBoxContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption/VBoxContainer/MarginContainer/DiscardScrollContainer"]
+[node name="DiscardContainer" type="VBoxContainer" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption/VBoxContainer/MarginContainer/DiscardScrollContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-
-[node name="NewPowerOption" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("12_k1650")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="NewPowerOption2" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("12_k1650")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="NewPowerOption3" parent="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("12_k1650")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="QuitDialog" type="ConfirmationDialog" parent="."]
 unique_name_in_owner = true
@@ -507,10 +492,7 @@ layout_mode = 0
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="closed" from="RewardWindow" to="." method="_on_reward_window_closed"]
 [connection signal="pressed" from="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/HideButton" to="." method="_on_hide_button_pressed"]
-[connection signal="pressed" from="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/ReturnOption" to="RewardWindow" method="_on_return_option_pressed"]
-[connection signal="clicked" from="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/NewPowerOption" to="RewardWindow" method="_on_new_power_option_clicked"]
-[connection signal="clicked" from="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/NewPowerOption2" to="RewardWindow" method="_on_new_power_option_2_clicked"]
-[connection signal="clicked" from="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/NewPowerOption3" to="RewardWindow" method="_on_new_power_option_3_clicked"]
+[connection signal="pressed" from="RewardWindow/MarginContainer/CenterContainer/VBoxContainer/RewardButtonContainer/ReturnOption" to="RewardWindow" method="_on_return_option_pressed"]
 [connection signal="canceled" from="QuitDialog" to="." method="_on_quit_dialog_canceled"]
 [connection signal="confirmed" from="QuitDialog" to="." method="_on_quit_dialog_confirmed"]
 [connection signal="canceled" from="NoPowersDialog" to="." method="_on_no_powers_dialog_canceled"]

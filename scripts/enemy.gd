@@ -48,6 +48,7 @@ var outline_material: Material = preload("res://shaders/outline_material.tres")
 		hp_bar.value = hp_current
 		hp_label.text = "%s / %s" % [hp_current, blueprint.hp_max]
 		if hp_current == 0:
+			get_tree().current_scene.check_win()
 			queue_free()
 
 

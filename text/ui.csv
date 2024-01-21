@@ -12,7 +12,7 @@ WINDOWED,WINDOWED,ОКОННЫЙ РЕЖИМ
 FULL SCREEN,FULL SCREEN,ПОЛНЫЙ ЭКРАН
 DEFEAT,DEFEAT,ПОРАЖЕНИЕ
 VICTORY,VICTORY,ПОБЕДА
-VICTORY_CREDITS_TEXT,"You won, great job!","Победа!"
+VICTORY_CREDITS_TEXT,"The invading forces of automatons retreat for now disrupted by your magic. Surely they will come back, but that will be another story...","Боевые машины отступают, разбитые твоими заклинаниями. Несомненно, они вернутся, но это уже другая история..."
 OVERLOAD_ABOVE_BAR,[center]OVERLOAD[/center],[center]ПЕРЕГРУЗКА[/center]
 OVERLOAD_IN_POWER_TOOLTIP,OVERLOAD,ПЕРЕГРУЗКА
 WAVES LEFT,WAVES LEFT,ОСТАЛОСЬ ВОЛН
